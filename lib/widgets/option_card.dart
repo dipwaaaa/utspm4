@@ -23,20 +23,19 @@ class OptionCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: size.width * 0.85,
-        margin: EdgeInsets.symmetric(vertical: size.height * 0.01),
-        padding: EdgeInsets.all(size.width * 0.04),
+        margin: EdgeInsets.symmetric(vertical: size.height * 0.008),
+        padding: EdgeInsets.symmetric(
+          horizontal: size.width * 0.05,
+          vertical: size.height * 0.02,
+        ),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.blue.shade100 : Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: isSelected ? Colors.blue : Colors.grey.shade300,
-            width: 2,
-          ),
+          color: isSelected ? const Color(0xFFA47BB8) : Colors.white.withOpacity(0.9),
+          borderRadius: BorderRadius.circular(25),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.shade200,
-              blurRadius: 4,
-              offset: const Offset(0, 2),
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, 4),
             ),
           ],
         ),
@@ -46,16 +45,16 @@ class OptionCard extends StatelessWidget {
               width: size.width * 0.1,
               height: size.width * 0.1,
               decoration: BoxDecoration(
-                color: isSelected ? Colors.blue : Colors.grey.shade200,
+                color: isSelected ? Colors.white : const Color(0xFFE8D5F2),
                 shape: BoxShape.circle,
               ),
               child: Center(
                 child: Text(
                   labels[index],
                   style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black,
+                    color: isSelected ? const Color(0xFFA47BB8) : const Color(0xFF8B5BA8),
                     fontWeight: FontWeight.bold,
-                    fontSize: size.width * 0.04,
+                    fontSize: size.width * 0.045,
                   ),
                 ),
               ),
@@ -66,7 +65,8 @@ class OptionCard extends StatelessWidget {
                 option,
                 style: TextStyle(
                   fontSize: size.width * 0.04,
-                  color: Colors.black87,
+                  color: isSelected ? Colors.white : const Color(0xFF6B4C7A),
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

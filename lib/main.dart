@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Quiz App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Poppins',
+        primarySwatch: Colors.purple,
+        scaffoldBackgroundColor: const Color(0xFFE8D5F2),
         useMaterial3: true,
       ),
       home: const HomeScreen(),

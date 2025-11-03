@@ -36,7 +36,10 @@ class _QuizScreenState extends State<QuizScreen> {
   void _nextQuestion() {
     if (_selectedAnswer == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Pilih jawaban terlebih dahulu!')),
+        const SnackBar(
+          content: Text('Pilih jawaban terlebih dahulu!'),
+          backgroundColor: Color(0xFFA47BB8),
+        ),
       );
       return;
     }
@@ -80,50 +83,90 @@ class _QuizScreenState extends State<QuizScreen> {
     final progress = (_currentQuestionIndex + 1) / _questions.length;
 
     return Scaffold(
+      backgroundColor: const Color(0xFFE8D5F2),
       appBar: AppBar(
-        title: Text('Halo, ${widget.userName}!'),
-        backgroundColor: Colors.blue,
+        title: Text(
+          'Halo, ${widget.userName}!',
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: const Color(0xFFA47BB8),
         foregroundColor: Colors.white,
+        elevation: 0,
       ),
       body: Column(
         children: [
-          LinearProgressIndicator(
-            value: progress,
-            backgroundColor: Colors.grey.shade200,
-            valueColor: const AlwaysStoppedAnimation<Color>(Colors.blue),
-            minHeight: 8,
+          // Progress Bar
+          Container(
+            height: 6,
+            child: LinearProgressIndicator(
+              value: progress,
+              backgroundColor: const Color(0xFFD5B8E8),
+              valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFFA47BB8)),
+            ),
           ),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.all(size.width * 0.05),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Pertanyaan ${_currentQuestionIndex + 1}/${_questions.length}',
-                      style: TextStyle(
-                        fontSize: size.width * 0.04,
-                        color: Colors.grey,
-                      ),
-                    ),
                     SizedBox(height: size.height * 0.02),
+
+                    // Question Card with Number Badge
                     Container(
                       width: double.infinity,
-                      padding: EdgeInsets.all(size.width * 0.05),
+                      padding: EdgeInsets.all(size.width * 0.06),
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
-                        borderRadius: BorderRadius.circular(12),
+                        color: const Color(0xFFB89CC9),
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.15),
+                            blurRadius: 20,
+                            offset: const Offset(0, 8),
+                          ),
+                        ],
                       ),
-                      child: Text(
-                        question.text,
-                        style: TextStyle(
-                          fontSize: size.width * 0.05,
-                          fontWeight: FontWeight.bold,
-                        ),
+                      child: Column(
+                        children: [
+                          // Number Badge
+                          Container(
+                            width: size.width * 0.12,
+                            height: size.width * 0.12,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Center(
+                              child: Text(
+                                '0${_currentQuestionIndex + 1}',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                  color: const Color(0xFFA47BB8),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: size.height * 0.02),
+
+                          // Question Text
+                          Text(
+                            question.text,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: size.width * 0.045,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                              height: 1.4,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     SizedBox(height: size.height * 0.03),
+
+                    // Options
                     ...List.generate(
                       question.options.length,
                           (index) => OptionCard(
@@ -138,33 +181,39 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             ),
           ),
+
+          // Navigation Buttons
           Container(
             padding: EdgeInsets.all(size.width * 0.05),
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
+            ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 if (_currentQuestionIndex > 0)
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.only(right: size.width * 0.02),
-                      child: CustomButton(
-                        text: 'Sebelumnya',
-                        onPressed: _previousQuestion,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: _currentQuestionIndex > 0 ? size.width * 0.02 : 0,
-                    ),
+                  SizedBox(
+                    width: size.width * 0.35,
                     child: CustomButton(
-                      text: _currentQuestionIndex == _questions.length - 1
-                          ? 'Selesai'
-                          : 'Selanjutnya',
-                      onPressed: _nextQuestion,
+                      text: 'BACK',
+                      onPressed: _previousQuestion,
+                      color: const Color(0xFFB89CC9),
                     ),
+                  )
+                else
+                  SizedBox(width: size.width * 0.35),
+                SizedBox(
+                  width: size.width * 0.35,
+                  child: CustomButton(
+                    text: _currentQuestionIndex == _questions.length - 1
+                        ? 'FINISH'
+                        : 'NEXT',
+                    onPressed: _nextQuestion,
+                    color: const Color(0xFFA47BB8),
                   ),
                 ),
               ],
