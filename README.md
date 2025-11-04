@@ -1,16 +1,43 @@
-# utspm4
+# UTS PM4 
+- Nama: Diva Syakirahana
+- NIM: 231401077
+- Lab: PM4
 
-A new Flutter project.
+## Nama Aplikasi
+Quiz
 
-## Getting Started
+## Deskripsi Aplikasi
+Aplikasi kuis pilihan ganda yang memungkinkan pengguna:
+- Memasukkan nama sebelum memulai kuis
+- Menjawab 5 pertanyaan pilihan ganda
+- Navigasi antar pertanyaan (next/previous)
+- Melihat skor akhir dengan persentase
 
-This project is a starting point for a Flutter application.
+## Credit
+- Font: [Poppins from Google Fonts](https://fonts.google.com/specimen/Poppins)
+- Icons: Material Icons (bawaan Flutter)
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshot Aplikasi
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 1. Home Screen
+![Home Screen 1](screenshots/home_screen/utspm4_homescreen.png)
+![Home Screen 2](screenshots/home_screen/utspm4_homescreen2.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 2. Quiz Screen
+![Quiz Screen 1](screenshots/quiz_screen/utspm4_quizscreen.png)
+![Quiz Screen 2](screenshots/quiz_screen/utspm4_quizscreen2.png)
+![Quiz Screen 3](screenshots/quiz_screen/utspm4_quizscreen3.png)
+![Quiz Screen 4](screenshots/quiz_screen/utspm4_quizscreen4.png)
+![Quiz Screen 5](screenshots/quiz_screen/utspm4_quizscreen5.png)
+![Quiz Screen 6](screenshots/quiz_screen/utspm4_quizscreen6.png)
+![Quiz Screen 7](screenshots/quiz_screen/utspm4_quizscreen7.png)
+
+### 3. Result Screen
+![Result Screen](screenshots/result_screen/utspm4_resultscreen.png)
+
+## Link Mockup/Prototype
+https://www.figma.com/proto/8fNkdoZyhkRB2qDfmR2Ve6/UTS-PM4?node-id=0-1&t=oNPOCKvn3qWYqskz-1
+
+## Catatan
+- Download font Poppins dari: https://fonts.google.com/specimen/Poppins dan letakkan di `assets/fonts/` 
+- File yang dibutuhkan: `Poppins-Regular.ttf` dan `Poppins-Bold.ttf`
