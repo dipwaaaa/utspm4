@@ -36,7 +36,7 @@ Aplikasi kuis pilihan ganda yang memungkinkan pengguna:
 ![Result Screen](screenshots/result_screen/utspm4_resultscreen.png)
 
 ## Link Mockup/Prototype
-https://www.figma.com/proto/8fNkdoZyhkRB2qDfmR2Ve6/UTS-PM4?node-id=0-1&t=oNPOCKvn3qWYqskz-1
+https://www.figma.com/design/8fNkdoZyhkRB2qDfmR2Ve6/UTS-PM4?node-id=1-2&t=oNPOCKvn3qWYqskz-1
 
 ## Catatan
 - Download font Poppins dari: https://fonts.google.com/specimen/Poppins dan letakkan di `assets/fonts/` 
